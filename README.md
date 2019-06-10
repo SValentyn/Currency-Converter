@@ -6,7 +6,7 @@
 
 ---
  
-Description project: The application is a currency converter with the ability to enter the amount of the currency of a country and select the country in the currency of which you want to transfer. Conversion rates data is available from a third-party API. The graphical interface is based on the JavaFX library.  
+Description project: The application is a currency converter with the ability to enter the amount of the currency of a [country](https://en.wikipedia.org/wiki/ISO_3166-1) and select the country in the currency of which you want to transfer. Conversion rates data is available from a [third-party API](https://www.currencyconverterapi.com). The graphical interface is based on the JavaFX library.  
 Below is an images of the developed converter in different states:
 
 <p align="center">
