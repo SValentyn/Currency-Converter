@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<StackPane fx:id="stackPane" maxHeight="540.0" maxWidth="400.0" prefHeight="540.0" prefWidth="400.0"
+           stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="Controller">
+    <children>
+        <BorderPane maxHeight="540.0" maxWidth="400.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0"
+                    prefWidth="400.0" stylesheets="@styles.css">
+            <top>
+                <Pane prefHeight="164.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label fx:id="mainLabel" layoutX="-7.0" layoutY="27.0" prefHeight="114.0" prefWidth="425.0"
+                               styleClass="label-main" text="Currency Converter" textFill="WHITE" wrapText="true">
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                            </padding>
+                            <font>
+                                <Font size="30.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </top>
+            <center>
+                <Pane>
+                    <children>
+                        <JFXTextField fx:id="inputField" focusColor="#355d9d" labelFloat="true" layoutX="9.0"
+                                      layoutY="13.0" prefHeight="31.0" prefWidth="380.0" promptText="Enter Amount"
+                                      styleClass="text-field" unFocusColor="#4d7de1">
+                            <tooltip>
+                                <Tooltip styleClass="tooltip" text="Enter the amount of currency"/>
+                            </tooltip>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="fromCountry" focusColor="#28396c" layoutX="13.0" layoutY="100.0"
+                                     onAction="#selectCountry" prefHeight="37.0" prefWidth="320.0"
+                                     promptText="From Country" styleClass="combo-box" unFocusColor="#4d7de1"
+                                     visibleRowCount="8"/>
+                        <JFXComboBox fx:id="toCountry" focusColor="#28396c" layoutX="13.0" layoutY="170.0"
+                                     onAction="#selectCountry" prefHeight="37.0" prefWidth="320.0"
+                                     promptText="To Country" styleClass="combo-box" unFocusColor="#4d7de1"
+                                     visibleRowCount="8"/>
+                        <JFXButton fx:id="convertButton" buttonType="RAISED" layoutX="100.0" layoutY="263.0"
+                                   onAction="#convert" prefHeight="60.0" prefWidth="200.0" text="CONVERT"
+                                   textFill="WHITE">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                            <tooltip>
+                                <Tooltip styleClass="tooltip" text="Convert currency"/>
+                            </tooltip>
+                        </JFXButton>
+                        <Label fx:id="inputLabel" layoutX="10.0" layoutY="52.0" prefHeight="25.0" prefWidth="380.0"
+                               styleClass="label-error" textFill="#f50202"/>
+                        <ImageView fx:id="swapButton" accessibleRole="BUTTON" fitHeight="40.0" fitWidth="40.0"
+                                   layoutX="342.0" layoutY="151.0" onMouseClicked="#swapCountries" pickOnBounds="true"
+                                   smooth="false">
+                            <Image url="@img/change.jpg"/>
+                        </ImageView>
+                        <JFXSpinner fx:id="spinner" layoutX="140.0" layoutY="45.0" prefHeight="120.0"
+                                    prefWidth="120.0"/>
+                        <Label layoutX="252.0" layoutY="352.0" styleClass="label-author" text="author Syniuk Valentyn"/>
+                    </children>
+                </Pane>
+            </center>
+        </BorderPane>
+    </children>
+</StackPane>
