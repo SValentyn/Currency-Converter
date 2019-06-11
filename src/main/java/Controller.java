@@ -144,26 +144,32 @@ public class Controller implements Initializable {
     @FXML
     public void convert() {
         inputLabel.setVisible(true);
-        if (validateInput()) {
-            Double rate = getConversionRate();
-            setConversionRateOnLabel(rate);
+        if (fromCountry.getSelectionModel().getSelectedIndex() != -1 &&
+                toCountry.getSelectionModel().getSelectedIndex() != -1) {
+            if (validateInput()) {
+                Double rate = getConversionRate();
+                setConversionRateOnLabel(rate);
 
-            new Thread(() -> {
-                // start download animation
-                startAnimation();
+                new Thread(() -> {
+                    // start download animation
+                    startAnimation();
 
-                // animation time
-                try {
-                    Thread.sleep(1500);
-                } catch (InterruptedException ignored) {
-                }
+                    // animation time
+                    try {
+                        Thread.sleep(1500);
+                    } catch (InterruptedException ignored) {
+                    }
 
-                // stop animation and show dialog
-                stopAnimation(rate);
-            }).start();
+                    // stop animation and show dialog
+                    stopAnimation(rate);
+                }).start();
+            } else {
+                inputLabel.setStyle("-fx-text-fill: #f70d17;");
+                inputLabel.setText("Something went wrong fill the input correctly!");
+            }
         } else {
-            inputLabel.setText("Something went wrong fill the input correctly!");
             inputLabel.setStyle("-fx-text-fill: #f70d17;");
+            inputLabel.setText("Unable to get conversion rate!");
         }
     }
 
@@ -201,23 +207,18 @@ public class Controller implements Initializable {
         Platform.runLater(() -> {
             spinner.setVisible(false);
             turnOnAllElements();
-            if (rate != null) {
-                Platform.runLater(() -> {
-                    try {
-                        convertButton.requestFocus(); // protection against accidental clicks
-                        double result = rate * Double.parseDouble(inputField.getText());
-                        Formatter formatter = new Formatter(Locale.ENGLISH);
-                        formatter.format("The result of currency conversion: %.3f", result);
-                        showDialog(formatter.toString(), stackPane);
-                    } catch (NumberFormatException e) {
-                        inputLabel.setStyle("-fx-text-fill: #f70d17;");
-                        inputLabel.setText("Something went wrong fill the input correctly!");
-                    }
-                });
-            } else {
-                inputLabel.setText("Unable to get conversion rate!");
-                inputLabel.setStyle("-fx-text-fill: #f70d17;");
-            }
+            Platform.runLater(() -> {
+                try {
+                    convertButton.requestFocus(); // protection against accidental clicks
+                    double result = rate * Double.parseDouble(inputField.getText());
+                    Formatter formatter = new Formatter(Locale.ENGLISH);
+                    formatter.format("The result of currency conversion: %.3f", result);
+                    showDialog(formatter.toString(), stackPane);
+                } catch (NumberFormatException e) {
+                    inputLabel.setStyle("-fx-text-fill: #f70d17;");
+                    inputLabel.setText("Something went wrong fill the input correctly!");
+                }
+            });
         });
     }
 
@@ -228,6 +229,7 @@ public class Controller implements Initializable {
         toCountry.setDisable(true);
         swapButton.setDisable(true);
         inputLabel.setVisible(false);
+        swapButton.setStyle("-fx-opacity: 0.3");
     }
 
     private void turnOnAllElements() {
@@ -237,6 +239,7 @@ public class Controller implements Initializable {
         toCountry.setDisable(false);
         swapButton.setDisable(false);
         inputLabel.setVisible(true);
+        swapButton.setStyle("-fx-opacity: 1");
     }
 
     private void showDialog(String body, StackPane stackPane) {
