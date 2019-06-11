@@ -183,7 +183,11 @@ public class Controller implements Initializable {
     }
 
     private boolean isPositiveNumber(String input) {
-        return Double.parseDouble(input) >= 0.0;
+        try {
+            return Double.parseDouble(input) >= 0.0;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     private void startAnimation() {
