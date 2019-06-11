@@ -6,13 +6,13 @@
 
 ---
  
-Description project: The application is a currency converter with the ability to enter the amount of the currency of a country and select the country in the currency of which you want to transfer. Conversion rates data is available from a third-party API. The graphical interface is based on the JavaFX library.  
+Description project: The application is a currency converter with the ability to enter the amount of the currency of a [country](https://en.wikipedia.org/wiki/ISO_3166-1) and select the country in the currency of which you want to transfer. Conversion rates data is available from a [third-party API](https://www.currencyconverterapi.com). The graphical interface is based on the JavaFX library (additionally [JFoenix](https://github.com/jfoenixadmin/JFoenix) library was used).  
 Below is an images of the developed converter in different states:
 
-<p>
-  <img  width="360" height="486" src="https://github.com/SValentyn/Currency-Converter/blob/master/src/main/resources/project/initial_window.png">
-  <img  width="360" height="486" src="https://github.com/SValentyn/Currency-Converter/blob/master/src/main/resources/project/data_input.png">
-  <img  width="360" height="486" src="https://github.com/SValentyn/Currency-Converter/blob/master/src/main/resources/project/convertation_result.png">
+<p align="center">
+  <img  width="285" height="420" src="https://github.com/SValentyn/Currency-Converter/blob/master/src/main/resources/project/initial_window.png">
+  <img  width="285" height="420" src="https://github.com/SValentyn/Currency-Converter/blob/master/src/main/resources/project/data_input.png">
+  <img  width="285" height="420" src="https://github.com/SValentyn/Currency-Converter/blob/master/src/main/resources/project/convertation_result.png">
 </p>
 
 ---
