@@ -100,15 +100,16 @@ public class Controller implements Initializable {
     }
 
     /**
-     * Update input label with new conversion rate (if possible).
+     * Update input label with new conversion rate if possible,
+     * otherwise, report an error in the label.
      */
     private void setInputLabel() {
         Platform.runLater(() -> {
-            setConversionRateOnLabel(getConversionRate());
+            setInputLabel(getConversionRate());
         });
     }
 
-    private void setConversionRateOnLabel(Double rate) {
+    private void setInputLabel(Double rate) {
         if (rate != null) {
             Formatter formatter = new Formatter(Locale.ENGLISH);
             formatter.format("Conversion rate = %.3f", rate);
@@ -148,7 +149,7 @@ public class Controller implements Initializable {
                 toCountry.getSelectionModel().getSelectedIndex() != -1) {
             if (validateInput()) {
                 Double rate = getConversionRate();
-                setConversionRateOnLabel(rate);
+                setInputLabel(rate);
 
                 new Thread(() -> {
                     // start download animation
@@ -227,8 +228,8 @@ public class Controller implements Initializable {
         inputField.setDisable(true);
         fromCountry.setDisable(true);
         toCountry.setDisable(true);
-        swapButton.setDisable(true);
         inputLabel.setVisible(false);
+        swapButton.setDisable(true);
         swapButton.setStyle("-fx-opacity: 0.3");
     }
 
@@ -237,20 +238,22 @@ public class Controller implements Initializable {
         inputField.setDisable(false);
         fromCountry.setDisable(false);
         toCountry.setDisable(false);
-        swapButton.setDisable(false);
         inputLabel.setVisible(true);
+        swapButton.setDisable(false);
         swapButton.setStyle("-fx-opacity: 1");
     }
 
     private void showDialog(String body, StackPane stackPane) {
-        JFXButton cancel = new JFXButton("Cancel");
-        cancel.setPrefSize(120, 30);
         JFXDialogLayout content = new JFXDialogLayout();
         content.setHeading(new Text("Conversion result"));
         content.setBody(new Text(body));
-        content.setActions(cancel);
+
+        JFXButton cancelButton = new JFXButton("Cancel");
+        cancelButton.setPrefSize(120, 30);
+        content.setActions(cancelButton);
+
         JFXDialog dialog = new JFXDialog(stackPane, content, JFXDialog.DialogTransition.CENTER);
-        cancel.setOnAction(event -> dialog.close());
+        cancelButton.setOnAction(event -> dialog.close());
         dialog.show();
     }
 
