@@ -65,11 +65,7 @@ JFXSpinner {
     -fx-cursor: default;
     -fx-font-size: 23px Calibri, Arial, sans-serif;
     -fx-font-weight: bold;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 20, 0, 0, 0);
-}
-
-.button:pressed {
-    -fx-background-color: linear-gradient(#63b6b7, #846bb8);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 18, 0, 0, 0);
 }
 
 .tooltip {
