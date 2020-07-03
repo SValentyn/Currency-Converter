@@ -6,8 +6,9 @@
 
 ---
  
-Description project: The application is a currency converter with the ability to enter the amount of the currency of a [country](https://en.wikipedia.org/wiki/ISO_3166-1) and select the country in the currency of which you want to transfer. Conversion rates data is available from a [third-party API](https://www.currencyconverterapi.com). The graphical interface is based on the JavaFX library (additionally [JFoenix](https://github.com/jfoenixadmin/JFoenix) library was used).  
-Below is an images of the developed converter in different states:
+Description project: The application is a currency converter with the ability to enter the amount of the currency of a country and select the country in the currency of which you want to transfer. Used country codes are available in the standard [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1). Conversion rates data is available from a [third-party API](https://www.currencyconverterapi.com). The graphical interface is based on the JavaFX library (additionally [JFoenix](https://github.com/jfoenixadmin/JFoenix) library was used).  
+  
+`Below is an images of the developed converter in different states:`
 
 <p align="center">
   <img  width="285" height="420" src="https://github.com/SValentyn/Currency-Converter/blob/master/src/main/resources/project/initial_window.png">
@@ -16,5 +17,12 @@ Below is an images of the developed converter in different states:
 </p>
 
 ---
+
+## Support
+
+Patches are welcome and can be submitted by forking this project and submitting a pull request via GitHub.  
+Please see [CONTRIBUTING.md](../master/CONTRIBUTING.md) for more details.
+
+---  
 
 I hope my project will help you! Communication with me: https://t.me/vlnt_snk
