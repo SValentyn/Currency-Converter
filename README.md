@@ -6,7 +6,7 @@
 
 ---
  
-Description project: The application is a currency converter with the ability to enter the amount of the currency of a country and select the country in the currency of which you want to transfer. Used country codes are available in the standard [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1). Conversion rates data is available from a [third-party API](https://www.currencyconverterapi.com). The graphical interface is based on the JavaFX library (additionally [JFoenix](https://github.com/jfoenixadmin/JFoenix) library was used).  
+Description project: The application is a currency converter with the ability to enter any amount and select any country for conversion. Used country codes are available in the standard [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1). Conversion rates data is available from a [third-party API](https://www.currencyconverterapi.com). The graphical interface is based on the JavaFX library (additionally [JFoenix](https://github.com/jfoenixadmin/JFoenix) library was used).  
   
 `Below is an images of the developed converter in different states:`
 
